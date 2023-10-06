@@ -1,10 +1,11 @@
 import AdminJS from "adminjs"
 import AdminJSExpress from "@adminjs/express"
 import AdminJSSequelize from "@adminjs/sequelize"
-import { sequelize } from "../database"
-import { adminJsResources } from "./resources"
-import { User } from "../models"
 import bcrypt from "bcrypt"
+import { sequelize } from "../database"
+import { User } from "../models"
+import { adminJsResources } from "./resources"
+import { locale } from "./locale"
 
 AdminJS.registerAdapter(AdminJSSequelize)
 
@@ -32,7 +33,8 @@ export const adminJs = new AdminJS({
                 hoverBg: "#151515"
             }
         }
-    }
+    },
+    locale: locale
 })
 
 export const adminJsRouter = AdminJSExpress.buildAuthenticatedRouter(adminJs, {
