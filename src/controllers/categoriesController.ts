@@ -9,7 +9,6 @@ export const categorioriesController = {
         
         try {
             const paginatedCategories = await categoryService.findAllPaginated(page, perPage)
-            console.log(paginatedCategories)
             return res.json(paginatedCategories)
         } catch (error) {
             if (error instanceof Error) return res.status(400).json({ message: error.message })
@@ -22,7 +21,6 @@ export const categorioriesController = {
 
         try {
             const category = await categoryService.findByIdWithCourses(id)
-            console.log(category)
             return res.json(category)
         } catch (error) {
             if (error instanceof Error) return res.status(400).json({ message: error.message })
