@@ -7,6 +7,7 @@ const router = express.Router()
 router.get('/categories', categorioriesController.index)
 router.get('/categories/:id', categorioriesController.show)
 
+router.get('/courses/featured', coursesController.featured)
 router.get('/courses/:id', coursesController.show)
 
 export { router }
